@@ -1,0 +1,24 @@
+#include<iostream>
+#include<bits/stdc++.h>
+#define int long long 
+using namespace std;
+signed main()
+{
+    string s;
+    int mod = 1e9+7;
+    cout<<"\nenter string\n";
+    cin>>s;
+    int n = s.length();
+    int pre[n],i,hash=0,pr=1;
+    for(i=0;i<n;i++)
+    {
+        hash = (hash + ((s[i]-'a'+1)*pr)%mod)%mod;
+        pr = (pr * 31)%mod;
+        pre[i] = hash;
+    }
+    for(i=0;i<n;i++)
+    {
+        cout<<pre[i]<<" ";
+    }
+    return 0;
+}

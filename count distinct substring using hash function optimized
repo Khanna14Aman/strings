@@ -27,3 +27,4 @@ signed main()
     cout<<st.size();
     return 0;
 }
+// In case collision might happen you should use set of pair and make two hash function for each substring. 

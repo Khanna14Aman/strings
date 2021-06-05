@@ -1,0 +1,38 @@
+question==>  https://codeforces.com/problemset/problem/271/D
+#include<iostream>
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+signed main()
+{
+    string s,b;
+    int k,i,j,count=0;
+    cin>>s>>b;
+    cin>>k;
+    int n = s.length();
+    set<pair<int,int>>st;
+    int mod1 = 1e9+7, mod2 = 1e7+7;
+    for(i=0;i<n;i++)
+    {
+        int hash1 =0,pr1=1,hash2=0,pr2=1;
+        count=0;
+        for(j=i;j<n;j++)
+        {
+            if(b[s[j]-'a']=='0')
+            {
+                count++;
+            }
+            if(count>k)
+            {
+                break;
+            }
+            hash1 = (hash1 + ((s[j]-'a'+1)*pr1)%mod1)%mod1;//if we use only one hash function might get wrong answer due to collision
+            hash2 = (hash2 + ((s[j]-'a'+1)*pr2)%mod2)%mod2;
+            pr2 = (pr2*29)%mod2;
+            pr1=(pr1*31)%mod1;
+            st.insert({hash1,hash2});
+        }
+    }
+    cout<<st.size()<<"\n";
+    return 0;
+}

@@ -1,0 +1,35 @@
+#include<iostream>
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+signed main()
+{
+    string s,b;
+    int k,i,j,count=0;
+    cin>>s>>b;
+    cin>>k;
+    int n = s.length();
+    set<int>st;
+    int mod = 1e9+7;
+    for(i=0;i<n;i++)
+    {
+        int hash =0,pr=1;
+        count=0;
+        for(j=i;j<n;j++)
+        {
+            if(b[s[j]-'a']=='0')
+            {
+                count++;
+            }
+            if(count>k)
+            {
+                break;
+            }
+            hash = (hash*131)^s[j];//uses different hash function which will not give wrong answer due to collision
+            // if there is collision in your approach then your set size will be less than original answer but it will pass most of the test cases
+            st.insert(hash);
+        }
+    }
+    cout<<st.size()<<"\n";
+    return 0;
+}

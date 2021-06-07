@@ -51,7 +51,7 @@ void zee()
 signed main()
 {
     int no;
-    while(cin>>no)//very important
+    while(cin>>no)//very important we run loop till there is input numbers
     {
          zee();
     }

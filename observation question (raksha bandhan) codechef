@@ -27,7 +27,7 @@ vector<int> ze(string s)
 }
 signed main()
 {
-    scanf("%s",ss);
+    scanf("%s",ss);  //for entering string with the use of scanf we need to initialize string as character we cannot declare string using " string " keyword
     vector<int>vec;
     vec = ze(ss);
     int q;
